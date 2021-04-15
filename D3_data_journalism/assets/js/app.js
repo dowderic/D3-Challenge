@@ -23,10 +23,10 @@ var svg = d3.select("#scatter")
 // import data from CSV
 d3.csv("../assets/data/data.csv").then(function(data) {
   console.log(data);
-});
+;
 
 
-    // Adding X axis with Poverty Data
+ // Adding X axis with Poverty Data
   var x = d3.scaleLinear()
     .domain([0, 30])
     .range([ 0, width ]);
@@ -34,7 +34,7 @@ d3.csv("../assets/data/data.csv").then(function(data) {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
-  // Adding Y axis with Lacks Healthcare %
+// Adding Y axis with Lacks Healthcare %
   var y = d3.scaleLinear()
     .domain([0, 30])
     .range([ height, 0]);
@@ -47,7 +47,8 @@ d3.csv("../assets/data/data.csv").then(function(data) {
     .data(data)
     .enter()
     .append("circle")
-      .attr("cx", function (d) { return x(data.poverty); } )
-      .attr("cy", function (d) { return y(data.healthcareLow); } )
+      .attr("cx", function (d) { return x(d.poverty); } )
+      .attr("cy", function (d) { return y(d.healthcareLow); } )
       .attr("r", 1.5)
       .style("fill", "#69b3a2")
+      })
