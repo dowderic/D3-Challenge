@@ -49,6 +49,6 @@ d3.csv("../assets/data/data.csv").then(function(data) {
     .append("circle")
       .attr("cx", function (d) { return x(d.poverty); } )
       .attr("cy", function (d) { return y(d.healthcareLow); } )
-      .attr("r", 1.5)
+      .attr("r", 5.0)
       .style("fill", "#69b3a2")
       })
